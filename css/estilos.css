@@ -1,0 +1,40 @@
+.mostar{display:block;}
+.ocultar{display:none;}
+
+.div-background{
+
+		background-color:rgba(0,0,0,0.5);
+
+
+}
+
+.div-container{
+	background-color:rgba(255,255,255,0);
+}
+
+.scroll{
+	overflow: scroll;
+	overflow-x: hidden; 
+	height: 200px;
+}
+
+
+a:link{
+	text-decoration: none;
+	color:#000000;
+	transition: 0.4s;
+}
+a:link:hover{
+	color: #468abe;
+	text-decoration: none;
+}
+
+a:visited{
+	text-decoration: none;
+	color:#000000;
+	transition: 0.4s;
+}
+a:visited:hover{
+	color: #468abe;
+	text-decoration: none;
+}
