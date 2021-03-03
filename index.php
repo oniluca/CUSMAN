@@ -76,10 +76,13 @@
 		        </a>	
 
 		        <div class="navbar-dropdown">
-		         <a class="navbar-item" href="?cargar=nuevoServicio">
-		          	Nuevo
-		          </a>
-		          <a class="navbar-item" href="?cargar=modificarServicio">
+			        <a class="navbar-item" href="?cargar=verServicio">
+			          	Ver
+			        </a>
+			        <a class="navbar-item" href="?cargar=nuevoServicio">
+			          	Nuevo
+			        </a>
+		          <!-- <a class="navbar-item" href="?cargar=modificarServicio">
 		            Modificar
 		          </a>
 		          <a class="navbar-item" href="?cargar=eliminarServicio">
@@ -88,7 +91,7 @@
 		          <hr class="navbar-divider">
 		          <a class="navbar-item">
 		            Report an issue
-		          </a>
+		          </a> -->
 		        </div>
 		      </div> 
 

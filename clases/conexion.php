@@ -24,17 +24,18 @@
 		//consulta que no devuelve nada
 		public function consultaSimple($sql){
 			$this->conexion->query($sql);
+			
 		}
 
 		//consulta que retorna resultado
 		public function consultaRetorno($sql){
 			$resultado=$this->conexion->query($sql);
 			return $resultado;
+			
 		}
 
 
-
-
 	}
+
 
  ?>

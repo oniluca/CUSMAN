@@ -24,7 +24,7 @@
 		//lista todos los servicios disponibles
 		public function listarServicios(){
 
-			$sql="SELECT id, servicio FROM servicios ORDER BY servicio ASC";
+			$sql="SELECT id, servicio, precio FROM servicios ORDER BY servicio ASC";
 			$resultado= $this->listar($sql);
 			return $resultado;
 		}
@@ -107,7 +107,7 @@
 		}
 
 
-
+		// comprueba fecha actual y dependiendo de ella muestra los proximos vencimientos anuales
 		public function vencimientosAnuales(){
 			$fecha =date("Y-m-d");
 

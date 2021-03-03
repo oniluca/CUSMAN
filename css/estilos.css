@@ -38,3 +38,15 @@ a:visited:hover{
 	color: #468abe;
 	text-decoration: none;
 }
+
+.tabla{
+
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.estiloModal{
+	margin-top: 8px;
+	margin-left: 3px;
+	margin-right: 3px;
+}

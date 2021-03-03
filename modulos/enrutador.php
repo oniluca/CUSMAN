@@ -20,6 +20,9 @@
 				case 'eliminarCliente':
 					include_once('vistas/'.$vista.'.php');
 					break;
+				case 'verServicio':
+					include_once('vistas/'.$vista.'.php');
+					break;
 				case 'nuevoServicio':
 					include_once('vistas/'.$vista.'.php');
 					break;

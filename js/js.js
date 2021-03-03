@@ -70,3 +70,35 @@ if(document.getElementById('enviarLogin')){
 }
 
 
+// funcion para lanzar modal para editar servicio
+let ts = document.getElementById("tablaServicios");
+ts.onclick=()=>{alert("esto es una prueba");}
+
+
+
+document.getElementById('modalModificarServ').onclick=()=>{
+  alert("chupame la pija culiado");
+  document.getElementById('modalServicios').classList.add('is-active');
+  let data =document.getElementById('modalModificarServ');
+
+  document.getElementById('servicioModal').setAttribute("value",data.dataset.servicio);
+  document.getElementById('precioServicioModal').setAttribute("value",data.dataset.precio);
+}
+
+
+//funcion para cerrar modal con esc
+document.getElementById('cerrarModalServicios').onclick=()=>{
+  document.getElementById('modalServicios').classList.remove('is-active');
+}
+
+window.onkeyup = (e)=>{
+
+  if(e.keyCode==27){
+    document.getElementById('modalServicios').classList.remove('is-active');
+  }
+
+}
+
+
+
+
