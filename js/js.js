@@ -77,7 +77,7 @@ ts.onclick=()=>{alert("esto es una prueba");}
 
 
 document.getElementById('modalModificarServ').onclick=()=>{
-  alert("chupame la pija culiado");
+  alert("alert de prueba");
   document.getElementById('modalServicios').classList.add('is-active');
   let data =document.getElementById('modalModificarServ');
 
