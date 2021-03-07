@@ -5,15 +5,25 @@
 		$usuario = new ValidacionUsuario(); 
 		
 		if(isset($_POST['enviarLogin'])){
-			$nombreUsuario=$_POST['usuario'];
-			$clave=hash ( 'sha512' , $_POST['clave'] ,true );	
-			$resultado=$usuario->validarUsuario($nombreUsuario,$clave);
-			if($resultado==true){
-				header("location:../index.php");
+			if($_POST['usuario']!= null && $_POST['clave']!=null){
+				$nombreUsuario=$_POST['usuario'];
+				$clave=hash ( 'sha512' , $_POST['clave'] ,true );	
+				$resultado=$usuario->validarUsuario($nombreUsuario,$clave);
+			}
+			if(isset($resultado)){	
+				if($resultado==true){
+					header("location:../index.php");
+				}else{
+					echo '<div class="notification is-danger is-light">
+	  					<button class="delete"></button>
+	  					Error al iniciar sesion, usuario y/o contraseña erronea, por favor vuelva a intentarlo.
+					</div>';
+
+				}	
 			}else{
 				echo '<div class="notification is-danger is-light">
   					<button class="delete"></button>
-  					Error al iniciar sesion, por favor vuelva a intentarlo.
+  					Error al iniciar sesion, debe completar todos los campos, por favor vuelva a intentarlo.
 				</div>';
 
 			}
