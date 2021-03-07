@@ -61,7 +61,7 @@ if(document.getElementById("buscar")){
 
 //fin funcion filtrado
  
-// funcion agregar imagen cargando cuando se apreta boton 
+// funcion agregar animacion cargando cuando se apreta boton 
 
 if(document.getElementById('enviarLogin')){
     document.getElementById('enviarLogin').onclick =()=>{
@@ -70,20 +70,19 @@ if(document.getElementById('enviarLogin')){
 }
 
 
-// funcion para lanzar modal para editar servicio
-let ts = document.getElementById("tablaServicios");
-ts.onclick=()=>{alert("esto es una prueba");}
+// funcion lanzar modal para editar servicio y cargar datos cuando se presiona el boton modificar
 
-
-
-document.getElementById('modalModificarServ').onclick=()=>{
-  alert("prueba");
+const btnModificar = document.querySelectorAll(".modalModificarServ");
+const clickModificar = function(evento){
   document.getElementById('modalServicios').classList.add('is-active');
-  let data =document.getElementById('modalModificarServ');
+  document.getElementById('servicioModal').setAttribute("value",this.dataset.servicio);
+  document.getElementById('precioServicioModal').setAttribute("value",this.dataset.precio);
+  document.getElementById('formModalModificarServ').setAttribute("action",'?cargar=modificarServicio&id='+this.dataset.id);
 
-  document.getElementById('servicioModal').setAttribute("value",data.dataset.servicio);
-  document.getElementById('precioServicioModal').setAttribute("value",data.dataset.precio);
 }
+btnModificar.forEach( boton=> {
+  boton.addEventListener("click", clickModificar);
+});
 
 
 //funcion para cerrar modal con esc

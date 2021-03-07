@@ -20,6 +20,21 @@
 			$this->servicios = new Servicios();
 		}
 
+		public function crearServicio(){
+
+		}
+
+		public function modificarServicio($servicio,$valor,$id){
+			$this->servicios->set('servicios',$servicio);
+			$this->servicios->set('valor',$valor);
+			$this->servicios->set('id',$id);
+			$this->servicios->modificarServicio();
+		}
+
+		public function eliminarServicio(){
+
+		}
+
 		public function listarServicios(){
 			$resultado= $this->servicios->listarServicios();
 			return $resultado;

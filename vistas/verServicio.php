@@ -8,7 +8,7 @@
 
 <div>
 	<div class="tabla">
-       <table class="table is-fullwidth" id="tablaServicio">
+       <table class="table is-fullwidth" id="tablaServicios">
          <thead>
            <tr>
              <th>Servicio</th>
@@ -21,7 +21,7 @@
                  <td><?php echo $row['servicio']?></td>
                  <td><?php echo $row['precio'] ?></td>
                  
-                 <td><a id="modalModificarServ" name="modalModificarServ" data-target="#modalServicios" data-servicio="<?php echo $row['servicio']?>" data-precio="<?php echo $row['precio']?>" data-id="<?php echo $row['id']?>"><span class="icon"><i class="fas fa-pen"></i></span></a></td>
+                 <td><a id="<?php echo $row['id']?>" class="modalModificarServ" data-target="#modalServicios" data-servicio="<?php echo $row['servicio']?>" data-precio="<?php echo $row['precio']?>" data-id="<?php echo $row['id']?>"><span class="icon"><i class="fas fa-pen"></i></span></a></td>
                  <td><button type="button" name="botonaso">aaaa</button></td>
 
                   <td><a href="?cargar=eliminarServicio&id=<?php echo $row['id'];?>"><span class="icon"><i class="fas fa-trash"></i></span></a></td>
@@ -38,7 +38,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
   	<section class="modal-card-body">
-    	<form action="modificarServicio.php" method="POST">
+    	<form  id="formModalModificarServ" action="" method="POST">
     		<div class="field is-horizontal">
 			 	<div class="field-label is normal">
 			 		<label class="label">Servicio</label>

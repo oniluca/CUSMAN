@@ -8,6 +8,7 @@
 
 		 private $id;
 		 private $servicios;
+		 private $valor;
 
 		// metodos
 
@@ -19,6 +20,22 @@
 		//obtiene el valor de una variable
 		public function get ($atributo){
 			return $this->$atributo;
+		}
+
+		// crea un nuevo servicio
+		public function crearServicio(){
+
+		}
+
+		// modifica un servicio existente
+		public function modificarServicio(){
+			$sql="UPDATE servicios SET servicio='$this->servicios',precio='$this->valor' WHERE id='$this->id'";
+			$this->ejecutarSentencia($sql);
+		}
+
+		// elimina un servicio existente
+		public function eliminarServicio(){
+
 		}
 
 		//lista todos los servicios disponibles
