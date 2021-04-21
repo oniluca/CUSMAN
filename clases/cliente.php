@@ -39,9 +39,6 @@
 		public function listarClientes(){
 			$sql="select * from clientes";
 			$resultado= $this->listar($sql);
-			if(!$resultado){
-				return [];
-			}
 			return $resultado;
 
 		}

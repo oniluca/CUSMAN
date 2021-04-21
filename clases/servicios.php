@@ -90,11 +90,7 @@
 
 			$sql="SELECT vencimientos_iva.0_1 AS iva_inicio,vencimientos_iva.8_9 AS iva_fin,vencimientos_ddjj.0_1_2 AS ddjj_inicio,vencimientos_ddjj.8_9 AS ddjj_fin,vencimientos_iva.mes As mes_iva,vencimientos_ddjj.mes As mes_ddjj FROM vencimientos_iva JOIN vencimientos_ddjj ON vencimientos_ddjj.mes LIKE '%$mes%' AND vencimientos_iva.mes LIKE '%$mes%'";
 			$resultado=$this->listar($sql);
-			if(!$resultado){
-				return [];
-			}
 			$resultado=mysqli_fetch_array($resultado);
-			
 			
 			if($resultado['iva_inicio'] > $dia && $resultado['ddjj_inicio'] > $dia || ($resultado['iva_inicio'] < $dia && $resultado['ddjj_inicio'] < $dia && $resultado['iva_fin'] > $dia && $resultado['ddjj_fin'] > $dia) ){
 				return $resultado;
@@ -134,9 +130,6 @@
 
 			$sql="select * from vencimientos_anuales";
 			$resultado=$this->listar($sql);
-			if(!$resultado){
-				return [];
-			}
 			$i=0;
 			while($row=mysqli_fetch_array($resultado)){
 				$resultado2[$i][0]=$row['fecha'];
