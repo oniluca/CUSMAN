@@ -60,8 +60,18 @@ if(document.getElementById("buscar")){
 }
 
 //fin funcion filtrado
+
+
+//funcion para confirmar eliminacion cliente
+document.getElementById('btnEliminarCliente').onclick=()=>{
+  let btnEliminarCliente = document.querySelectorAll(".eliminarCliente");
+   document.getElementById('modalEliminarCliente').classList.add('is-active');
+  // document.getElementById('clienteModalEliminar').innerHTML= "¿Desea eliminar "+this.dataset.cliente+" ?";
+   //document.getElementById('formModalEliminarServ').setAttribute("action",'?cargar=eliminarCliente&id='+this.dataset.id);
+  
+}
  
-// funcion agregar animacion cargando cuando se apreta boton 
+// funcion agregar animacion cargando cuando se apreta boton login
 
 if(document.getElementById('enviarLogin')){
     document.getElementById('enviarLogin').onclick =()=>{
@@ -70,34 +80,80 @@ if(document.getElementById('enviarLogin')){
 }
 
 
-// funcion lanzar modal para editar servicio y cargar datos cuando se presiona el boton modificar
+if( window.location.search.includes("verServicio")){ 
 
-const btnModificar = document.querySelectorAll(".modalModificarServ");
-const clickModificar = function(evento){
-  document.getElementById('modalServicios').classList.add('is-active');
-  document.getElementById('servicioModal').setAttribute("value",this.dataset.servicio);
-  document.getElementById('precioServicioModal').setAttribute("value",this.dataset.precio);
-  document.getElementById('formModalModificarServ').setAttribute("action",'?cargar=modificarServicio&id='+this.dataset.id);
+    // funcion lanzar modal para editar servicio y cargar datos cuando se presiona el boton modificar o confirmar eliminacion si se presiona el boton eliminar
 
-}
-btnModificar.forEach( boton=> {
-  boton.addEventListener("click", clickModificar);
-});
+  const btnModificar = document.querySelectorAll(".modalModificarServ");
+  const clickModificar = function(evento){
+    if(this.dataset.accion=="modificar"){
+        document.getElementById('modalServicios').classList.add('is-active');
+        document.getElementById('servicioModal').setAttribute("value",this.dataset.servicio);
+        document.getElementById('precioServicioModal').setAttribute("value",this.dataset.precio);
+        document.getElementById('formModalModificarServ').setAttribute("action",'?cargar=modificarServicio&id='+this.dataset.id);
+    }else if (this.dataset.accion=="eliminar") {
+        document.getElementById('modalEliminarServicios').classList.add('is-active');
+        document.getElementById('servicioModalEliminar').innerHTML= "¿Desea eliminar "+this.dataset.servicio+" ?";
+        document.getElementById('formModalEliminarServ').setAttribute("action",'?cargar=eliminarServicio&id='+this.dataset.id);
+    }
+  }
 
 
-//funcion para cerrar modal con esc
-document.getElementById('cerrarModalServicios').onclick=()=>{
-  document.getElementById('modalServicios').classList.remove('is-active');
-}
+  btnModificar.forEach( boton=> {
+    boton.addEventListener("click", clickModificar);
+  });
 
-window.onkeyup = (e)=>{
 
-  if(e.keyCode==27){
-    document.getElementById('modalServicios').classList.remove('is-active');
+  //funcion para cerrar modal servicios
+  document.getElementById('cerrarModalModificarServicios').onclick=()=>{
+    document.getElementById('modalServicios').classList.remove('is-active');;
+  }
+
+  document.getElementById('cerrarModalEliminarServicios').onclick=()=>{
+    document.getElementById('modalEliminarServicios').classList.remove('is-active');
+  }
+
+  document.getElementById('cerrarModalEliminarCliente').onclick=()=>{
+    document.getElementById('modalEliminarCliente').classList.remove('is-active');
+  }
+
+  //funcion para cerrar modal con esc
+  window.onkeyup = (e)=>{
+
+    if(e.keyCode==27){
+      document.getElementById('modalServicios').classList.remove('is-active');
+      document.getElementById('modalEliminarServicios').classList.remove('is-active');
+      document.getElementById('modalEliminarCliente').classList.remove('is-active');
+    }
+
   }
 
 }
 
+// hay que ver como hacer para que las funciones de cerrar funcionen independientemente de la pagina cargada,
+// solo estan funcionando en la pagina de ver servicios por el condicional que le puse
 
 
+
+
+
+function cerrarModal(modal){
+  document.getElementById(modal).classList.remove('is-active');
+
+}
+
+  //funcion para cerrar modal servicios
+  document.getElementById('cerrarModalEliminarCliente').onclick=()=>{
+    cerrarModal('modalEliminarCliente');
+  }
+
+
+  //funcion para cerrar modal con esc
+  window.onkeyup = (e)=>{
+
+    if(e.keyCode==27){
+      cerrarModal('modalEliminarCliente');
+    }
+
+  }
 
