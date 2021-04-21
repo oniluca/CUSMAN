@@ -21,10 +21,9 @@
                  <td><?php echo $row['servicio']?></td>
                  <td><?php echo $row['precio'] ?></td>
                  
-                 <td><a id="<?php echo $row['id']?>" class="modalModificarServ" data-target="#modalServicios" data-servicio="<?php echo $row['servicio']?>" data-precio="<?php echo $row['precio']?>" data-id="<?php echo $row['id']?>"><span class="icon"><i class="fas fa-pen"></i></span></a></td>
-                 <td><button type="button" name="botonaso">aaaa</button></td>
-
-                  <td><a href="?cargar=eliminarServicio&id=<?php echo $row['id'];?>"><span class="icon"><i class="fas fa-trash"></i></span></a></td>
+                 <td><a data-accion="modificar" id="<?php echo $row['id']?>" class="modalModificarServ" data-target="#modalServicios" data-servicio="<?php echo $row['servicio']?>" data-precio="<?php echo $row['precio']?>" data-id="<?php echo $row['id']?>"><span class="icon"><i class="fas fa-pen"></i></span></a></td>
+         
+                  <td><a data-accion="eliminar" class="modalModificarServ" data-target="#modalEliminarServicios" data-servicio="<?php echo $row['servicio']?>" data-id="<?php echo $row['id']?>"><span class="icon"><i class="fas fa-trash"></i></span></a></td>
                </tr>
             <?php } ?>
          </tbody>
@@ -66,12 +65,28 @@
     	</form>
     </section>
   </div>
-  <button id="cerrarModalServicios" class="modal-close is-large" aria-label="close"></button>
+  <button id="cerrarModalModificarServicios" class="modal-close is-large" aria-label="close"></button>
 </div>
 
 
 
-<!-- 
- <button type="button" class="btn btnLeerMas" data-toggle="modal" data-target="#modalNoticia" data-foto="<?php echo $row['imagen']?>" data-titulo="<?php echo $row['titulo'];?>" data-descripcion="<?php echo $row['descripcion']?>">
- 						 LEER MAS
-					</button> -->	
+<div id=modalEliminarServicios class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+  	<section class="modal-card-body">
+    	<form  id="formModalEliminarServ" action="" method="POST">
+    		<div class="field is-horizontal">
+			 	<div class="field-label is normal">
+			 		<center><h1 class="subtitle is-5" id="servicioModalEliminar"> </h1></center>
+			 	</div>
+				 	
+			</div>
+			<div class="columns is-centered">
+    			<button class="button is-success is-outlined estiloModal" type="submit" name="eliminar" value="Eliminar">Eliminar</button>
+				<a   class="button is-danger is-outlined estiloModal" href="?cargar=verServicio">Calcelar</a>	
+			</div>
+    	</form>
+    </section>
+  </div>
+  <button id="cerrarModalEliminarServicios" class="modal-close is-large" aria-label="close"></button>
+</div>
