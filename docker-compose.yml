@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: 
+        context: .
+    ports:
+      - 9000:80
+    volumes:
+      - .:/var/www/html
+  db:
+    image: mysql:5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: "cusman"
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d
+    

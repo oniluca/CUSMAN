@@ -25,7 +25,7 @@
            </tr>
          </thead>
          <tbody>
-            <?php if($resultado): while($row= mysqli_fetch_array($resultado)){ ?>
+            <?php if($resultado): while($row = mysqli_fetch_array($resultado)){ ?>
                <tr>
                  <td><a href="?cargar=verCliente&id=<?php echo $row['cuit'];?>"><?php echo $row['razon_social']?></a></td>
                  <td><?php echo $row['cuit'] ?></td>
