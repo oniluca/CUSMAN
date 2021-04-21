@@ -31,7 +31,9 @@
 			$this->servicios->modificarServicio();
 		}
 
-		public function eliminarServicio(){
+		public function eliminarServicio($id){
+			$this->servicios->set('id',$id);
+			$this->servicios->eliminarServicio();
 
 		}
 
