@@ -4,13 +4,6 @@
     $resultado= $controlador->listarCliente();
     $controladorServicios = new ControladorServicios();
     $resultadoVencimientos=$controladorServicios->vencimientos();
-    // echo ($r['iva_inicio']);
-    // echo ($r['iva_fin']);
-    // echo ($r['ddjj_inicio']);
-    // echo ($r['ddjj_fin']);
-    // echo $resultadoVencimientos['recategorizacion'];
-    // echo "<br>";
-    // echo $resultadoVencimientos['ddjj'];
  ?>
 
 <br>
@@ -32,16 +25,16 @@
            </tr>
          </thead>
          <tbody>
-            <?php while($row= mysqli_fetch_array($resultado)){ ?>
+            <?php if($resultado): while($row= mysqli_fetch_array($resultado)){ ?>
                <tr>
                  <td><a href="?cargar=verCliente&id=<?php echo $row['cuit'];?>"><?php echo $row['razon_social']?></a></td>
                  <td><?php echo $row['cuit'] ?></td>
                  
                  <td><a href="?cargar=modificarCliente&id=<?php echo $row['cuit'];?>"><span class="icon"><i class="fas fa-pen"></i></span></a></td>
 
-                  <td><a href="?cargar=eliminarCliente&id=<?php echo $row['cuit'];?>"><span class="icon"><i class="fas fa-trash"></i></span></a></td>
+                  <td><a id="btnEliminarCliente" data-target="#modalEliminarCliente" class="eliminarCliente" data-cliente="<?php echo $row['razon_social']?>" data-id="<?php echo $row['cuit'];?>"><span class="icon"><i class="fas fa-trash"></i></span></a></td>
                </tr>
-            <?php } ?>
+            <?php } endif ?>
          </tbody>
        </table>
       </div>
@@ -84,5 +77,28 @@
     
   </div>
   
+</div>
+
+
+
+<div id=modalEliminarCliente class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <section class="modal-card-body">
+      <form  id="formModalEliminarServ" action="" method="POST">
+        <div class="field is-horizontal">
+        <div class="field-label is normal">
+          <center><h1 class="subtitle is-5" id="clienteModalEliminar"> </h1></center>
+        </div>
+          
+      </div>
+      <div class="columns is-centered">
+          <button class="button is-success is-outlined estiloModal" type="submit" name="eliminar" value="Eliminar">Eliminar</button>
+        <a   class="button is-danger is-outlined estiloModal" href="index.php">Calcelar</a> 
+      </div>
+      </form>
+    </section>
+  </div>
+  <button id="cerrarModalEliminarCliente" class="modal-close is-large" aria-label="close"></button>
 </div>
 
