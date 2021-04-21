@@ -35,6 +35,8 @@
 
 		// elimina un servicio existente
 		public function eliminarServicio(){
+			$sql="DELETE from servicios where id='$this->id'";
+			$this->ejecutarSentencia($sql);
 
 		}
 
