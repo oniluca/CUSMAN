@@ -32,7 +32,7 @@
            </tr>
          </thead>
          <tbody>
-            <?php while($row= mysqli_fetch_array($resultado)){ ?>
+            <?php if($resultado): while($row = mysqli_fetch_array($resultado)){ ?>
                <tr>
                  <td><a href="?cargar=verCliente&id=<?php echo $row['cuit'];?>"><?php echo $row['razon_social']?></a></td>
                  <td><?php echo $row['cuit'] ?></td>
@@ -41,7 +41,7 @@
 
                   <td><a href="?cargar=eliminarCliente&id=<?php echo $row['cuit'];?>"><span class="icon"><i class="fas fa-trash"></i></span></a></td>
                </tr>
-            <?php } ?>
+            <?php } endif ?>
          </tbody>
        </table>
       </div>

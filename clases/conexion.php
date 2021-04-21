@@ -9,7 +9,7 @@
 		private $conexion;
 
 		public function __construct(){
-			$this->host="localhost";
+			$this->host="db";
 			$this->user="root";
 			$this->pass="1234";
 			$this->db="cusman";
